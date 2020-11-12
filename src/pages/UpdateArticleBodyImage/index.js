@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import * as actions from "../../store/actions/articles";
 
 import { Form, FormGroup, Input } from "reactstrap";
-import imagem from "../../assets/default.jpg";
+import imagem from "../../assets/placeholder.jpg";
 import SpinnerUp from "../../components/SpinnerUp";
 import AlertDanger from "../../components/AlertDanger";
 import AlertSuccess from "../../components/AlertSuccess";

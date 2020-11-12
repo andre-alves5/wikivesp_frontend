@@ -1,6 +1,10 @@
 import * as type from "./types";
 import errorHandling from "./errorHandling";
 import * as apiArticle from "../api/articles";
+import axios from "axios";
+import { getHeaders } from "../actions/localStorage";
+
+const url = process.env.REACT_APP_API_URL;
 
 export const getAllArticles = (pageAtual, limit) => async (dispatch) => {
   try {
@@ -31,9 +35,13 @@ export const postArticle = (articleData, cb) => async () => {
   }
 };
 
-export const postArticleDetail = (idArtigo, articleDetailData, cb) => () => {
+export const postArticleDetail = (id, articleDetailData, cb) => async () => {
   try {
-    const { data } = apiArticle.postArticleDetail(idArtigo, articleDetailData);
+    const { data } = await axios.post(
+      url + `/articledetails/${id}`,
+      articleDetailData,
+      getHeaders()
+    );
     cb({ erro: data });
   } catch (error) {
     cb(errorHandling(error));

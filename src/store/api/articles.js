@@ -18,14 +18,6 @@ export const getMyArticles = (idAutor, pageAtual, limit) =>
 export const postArticle = (articleData) =>
   axios.post(url + `/articles/`, articleData, getHeaders());
 
-export const postArticleDetail = (idArtigo, articleDetailData) => {
-  axios.post(
-    url + `/articledetails/${idArtigo}`,
-    articleDetailData,
-    getHeaders()
-  );
-};
-
 export const putArticle = (articleData) =>
   axios.put(url + `/articles`, articleData, getHeaders());
 

@@ -24,15 +24,17 @@ class CadArticleBody extends Component {
   };
 
   cadArticle() {
-    const { subTitulo, corpoSubTitulo } = this.state;
     const { id } = this.props.match.params;
+    this.setState({ idArtigo: id });
+    const idArtigo = id;
+    const { subTitulo, corpoSubTitulo } = this.state;
     if (!this.validate()) return;
 
     this.setState({ loading: true });
 
     this.props.postArticleDetail(
-      { id },
-      { id, subTitulo, corpoSubTitulo },
+      id,
+      { idArtigo, subTitulo, corpoSubTitulo },
       (msg) => {
         if (msg.erro.error) {
           this.setState({ erro: { message: msg.erro.message } });
@@ -63,6 +65,7 @@ class CadArticleBody extends Component {
 
   render() {
     const {
+      idArtigo,
       subTitulo,
       corpoSubTitulo,
       erro,
@@ -71,13 +74,11 @@ class CadArticleBody extends Component {
       formSuccess,
     } = this.state;
 
-    const { id } = this.props.match.params;
-
     if (formSuccess) {
       return (
         <Redirect
           to={{
-            pathname: "/viewarticle/" + id,
+            pathname: "/viewarticle/" + idArtigo,
             state: { msg: "Artigo cadastrado com sucesso!" },
           }}
         />
