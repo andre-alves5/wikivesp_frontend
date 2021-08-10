@@ -73,7 +73,7 @@ class RecuperarSenhaLogin extends Component {
                 <div className="container-login">
                     <div className="login card shadow">
                         <Form className="form-signin text-center">
-                            <img className="mb-4" src="images/logo_celke.png" alt="Celke" width="72" height="72" />
+                            <img className="mb-4" src="images/logo.png" alt="WikiVesp" width="72" height="72" />
                             <h1 className="h3 mb-3 font-weight-normal">Recuperar Senha</h1>
 
                             <AlertDanger erros={erro} />
