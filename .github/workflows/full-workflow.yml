@@ -1,4 +1,4 @@
-name: Complete workflow
+name: WikiVesp FrontEnd Workflow
 
 on:
   push:
